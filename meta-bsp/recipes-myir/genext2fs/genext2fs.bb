@@ -28,5 +28,5 @@ do_install (){
 
 
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 

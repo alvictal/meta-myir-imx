@@ -20,7 +20,7 @@ do_install () {
 }
 
 
-FILES_${PN} = " \
+FILES:${PN} = " \
     ${sysconfdir}/bluetooth/firmware.conf \
     ${base_libdir}/firmware/qca \
     ${base_libdir}/firmware/qca9377 \

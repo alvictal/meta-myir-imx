@@ -7,8 +7,8 @@ DISTRO_VERSION = "5.10-gatesgarth"
 MAINTAINER = "NXP <lauren.post@nxp.com>"
 
 REMOVE_VULKAN_FEATURE = "vulkan"
-REMOVE_VULKAN_FEATURE_mx8 = ""
-POKY_DEFAULT_DISTRO_FEATURES_remove      = "wayland ${REMOVE_VULKAN_FEATURE}"
-POKY_DEFAULT_DISTRO_FEATURES_append_mx8  = " jailhouse"
+REMOVE_VULKAN_FEATURE:mx8 = ""
+POKY_DEFAULT_DISTRO_FEATURES:remove      = "wayland ${REMOVE_VULKAN_FEATURE}"
+POKY_DEFAULT_DISTRO_FEATURES:append:mx8  = " jailhouse"
 
-INHERIT_remove = "uninative"
+INHERIT:remove = "uninative"

@@ -21,4 +21,4 @@ do_install() {
     install -m 0644 sse2neon.h ${D}${includedir}
 }
 
-FILES_${PN} += "/opt"
+FILES:${PN} += "/opt"

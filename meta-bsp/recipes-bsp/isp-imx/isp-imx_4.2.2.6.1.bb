@@ -18,7 +18,7 @@ DEPENDS = "python libdrm"
 
 OECMAKE_GENERATOR = "Unix Makefiles"
 
-SYSTEMD_SERVICE_${PN} = "imx8-isp.service"
+SYSTEMD_SERVICE:${PN} = "imx8-isp.service"
 
 EXTRA_OECMAKE += " \
     -DCMAKE_BUILD_TYPE=release \
@@ -37,7 +37,7 @@ EXTRA_OECMAKE += " \
     -Wno-dev \
 "
 
-do_configure_prepend() {
+do_configure:prepend() {
     export SDKTARGETSYSROOT=${STAGING_DIR_HOST}
 }
 
@@ -66,12 +66,12 @@ do_install() {
     fi
 }
 
-RDEPENDS_${PN} = "libdrm libpython2 bash"
+RDEPENDS:${PN} = "libdrm libpython2 bash"
 
 PACKAGES = "${PN} ${PN}-dev ${PN}-dbg"
 
-FILES_${PN} = "${libdir} /opt ${systemd_system_unitdir}/imx8-isp.service"
-FILES_${PN}-dbg += "${libdir}/.debug"
+FILES:${PN} = "${libdir} /opt ${systemd_system_unitdir}/imx8-isp.service"
+FILES:${PN}-dbg += "${libdir}/.debug"
 
-INSANE_SKIP_${PN} += "rpaths dev-deps dev-so"
-INSANE_SKIP_${PN}-dev += "rpaths dev-elf"
+INSANE_SKIP:${PN} += "rpaths dev-deps dev-so"
+INSANE_SKIP:${PN}-dev += "rpaths dev-elf"

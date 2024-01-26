@@ -1,7 +1,7 @@
 # Copyright (C) 2020 NXP
 require optee-client.imx.inc
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/optee-client:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/optee-client:"
 
 OPTEE_CLIENT_SRC ?= "git://github.com/nxp-imx/imx-optee-client.git;protocol=https"
 SRC_URI = "${OPTEE_CLIENT_SRC};branch=${SRCBRANCH} \

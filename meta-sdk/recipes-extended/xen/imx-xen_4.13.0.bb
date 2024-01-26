@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 require xen.inc
 require xen-hypervisor.inc
 
@@ -16,7 +16,7 @@ SRCREV = "f538d6cef34515fedb923a10774766f15487d2ab"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN}-scripts-common += " ${sysconfdir}/xen/*.cfg"
+FILES:${PN}-scripts-common += " ${sysconfdir}/xen/*.cfg"
 
 COMPATIBLE_MACHINE = "(mx8qm)"
 

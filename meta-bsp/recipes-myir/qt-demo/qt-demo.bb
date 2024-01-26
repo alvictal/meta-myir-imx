@@ -80,9 +80,9 @@ do_install () {
       install -m 0777 ${WORKDIR}/fw_env.config  ${D}/etc
 }
 
-SYSTEMD_SERVICE_${PN} = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'myir.service', '', d)}"
+SYSTEMD_SERVICE:${PN} = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'myir.service', '', d)}"
 
-pkg_postinst_ontarget_${PN} () {
+pkg_postinst_ontarget:${PN} () {
 	if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
 		if [ -n "$D" ]; then
 			OPTS="--root=$D"
@@ -91,10 +91,10 @@ pkg_postinst_ontarget_${PN} () {
 	fi
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
             ${dirinstall} \
             "
 
 #For dev packages only
-INSANE_SKIP_${PN}-dev = "ldflags"
-INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+INSANE_SKIP:${PN}-dev = "ldflags"
+INSANE_SKIP:${PN} = "${ERROR_QA} ${WARN_QA}"

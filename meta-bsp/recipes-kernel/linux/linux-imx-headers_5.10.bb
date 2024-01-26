@@ -53,6 +53,6 @@ do_install() {
     done
 }
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 PACKAGE_ARCH = "${MACHINE_SOCARCH}"

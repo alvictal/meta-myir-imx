@@ -24,10 +24,10 @@ IMAGE_FEATURES += " \
     ssh-server-dropbear \
 "
 ERPC_COMPS ?= ""
-ERPC_COMPS_append_mx7ulp = "packagegroup-imx-erpc"
+ERPC_COMPS:append:mx7ulp = "packagegroup-imx-erpc"
 
 ISP_PKGS = ""
-ISP_PKGS_mx8mp = "packagegroup-imx-isp"
+ISP_PKGS:mx8mp = "packagegroup-imx-isp"
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     imx-uuc \
@@ -63,4 +63,4 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 	firmware-imx \
 	wifi-bt-conf \
 "
-IMAGE_INSTALL_append += "libgpiod"
+IMAGE_INSTALL:append += "libgpiod"

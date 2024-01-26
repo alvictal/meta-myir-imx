@@ -12,7 +12,7 @@ ALSA_INSTALL = " \
     alsa-utils \
     alsa-tools \
 "
-ALSA_INSTALL_append_mx8 = " tinycompress"
+ALSA_INSTALL:append:mx8 = " tinycompress"
 
 PULSEAUDIO_INSTALL = " \
     pulseaudio-server \
@@ -28,12 +28,12 @@ PULSEAUDIO_INSTALL = " \
 "
 
 ASRC_INSTALL ?= ""
-ASRC_INSTALL_mx8 = "imx-dspc-asrc"
+ASRC_INSTALL:mx8 = "imx-dspc-asrc"
 
 PDM_INSTALL ?= ""
-PDM_INSTALL_mx8m = "imx-sw-pdm"
+PDM_INSTALL:mx8m = "imx-sw-pdm"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${@bb.utils.contains("DISTRO_FEATURES", "alsa",  "${ALSA_INSTALL}", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "pulseaudio",  "${PULSEAUDIO_INSTALL}", "", d)} \
     ${ASRC_INSTALL} \

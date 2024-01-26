@@ -2,7 +2,7 @@
 # Copyright (C) 2013-2016 Freescale Semiconductor
 # Copyright 2017-2018 NXP
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
 SRCBRANCH = "lf-5.10.y_1.0.0"
 IMXTEST_SRC ?= "git://github.com/nxp-imx/imx-test.git;protocol=https"
@@ -13,7 +13,7 @@ SRC_URI = " \
 
 SRCREV = "4bad7b56b35e5c703a5bc6c9f553729b8d503fea"
 
-PACKAGECONFIG_append_mx8m = " swpdm"
+PACKAGECONFIG:append:mx8m = " swpdm"
 
 PACKAGECONFIG[swpdm] = "HAS_IMX_SW_PDM=true,HAS_IMX_SW_PDM=false,imx-sw-pdm"
 

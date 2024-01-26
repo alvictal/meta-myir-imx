@@ -26,6 +26,6 @@ do_install(){
 
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "autorun.service"
+SYSTEMD_SERVICE:${PN} = "autorun.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 

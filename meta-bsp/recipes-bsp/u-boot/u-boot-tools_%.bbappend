@@ -4,11 +4,11 @@
 # Disable CONFIG_FIT_SIGNATURE, openssl is not always the same
 # version, which the native tool is used on another Host.
 SED_CONFIG_DISABLE = "CONFIG_CMD_LICENSE CONFIG_FIT_SIGNATURE CONFIG_EFI_LOADER"
-SED_CONFIG_DISABLE_remove_x86 = "CONFIG_EFI_LOADER"
-SED_CONFIG_DISABLE_remove_x86-64 = "CONFIG_EFI_LOADER"
-SED_CONFIG_DISABLE_remove_arm = "CONFIG_EFI_LOADER"
-SED_CONFIG_DISABLE_remove_armeb = "CONFIG_EFI_LOADER"
-SED_CONFIG_DISABLE_remove_aarch64 = "CONFIG_EFI_LOADER"
+SED_CONFIG_DISABLE:remove:x86 = "CONFIG_EFI_LOADER"
+SED_CONFIG_DISABLE:remove:x86-64 = "CONFIG_EFI_LOADER"
+SED_CONFIG_DISABLE:remove:arm = "CONFIG_EFI_LOADER"
+SED_CONFIG_DISABLE:remove:armeb = "CONFIG_EFI_LOADER"
+SED_CONFIG_DISABLE:remove:aarch64 = "CONFIG_EFI_LOADER"
 
 do_compile() {
 	oe_runmake -C ${S} sandbox_defconfig O=${B}
@@ -37,4 +37,4 @@ do_install () {
 }
 
 
-FILES_${PN}-mkimage_remove = "${bindir}/uboot-fit_check_sign ${bindir}/fit_check_sign"
+FILES:${PN}-mkimage:remove = "${bindir}/uboot-fit_check_sign ${bindir}/fit_check_sign"

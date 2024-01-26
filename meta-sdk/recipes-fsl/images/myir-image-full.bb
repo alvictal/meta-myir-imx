@@ -10,14 +10,14 @@ CONFLICT_DISTRO_FEATURES = "directfb"
 # Add machine learning for certain SoCs
 ML_PKGS                   ?= ""
 ML_STATICDEV              ?= ""
-ML_PKGS_mx8                = "packagegroup-imx-ml"
-ML_STATICDEV_mx8           = "tensorflow-lite-staticdev"
-ML_PKGS_mx8dxl             = ""
-ML_STATICDEV_mx8dxl        = ""
-ML_PKGS_mx8phantomdxl      = ""
-ML_STATICDEV_mx8phantomdxl = ""
-ML_PKGS_mx8mnlite          = ""
-ML_STATICDEV_mx8mnlite     = ""
+ML_PKGS:mx8                = "packagegroup-imx-ml"
+ML_STATICDEV:mx8           = "tensorflow-lite-staticdev"
+ML_PKGS:mx8dxl             = ""
+ML_STATICDEV:mx8dxl        = ""
+ML_PKGS:mx8phantomdxl      = ""
+ML_STATICDEV:mx8phantomdxl = ""
+ML_PKGS:mx8mnlite          = ""
+ML_STATICDEV:mx8mnlite     = ""
 
 # Add opencv for i.MX GPU
 OPENCV_PKGS       ?= ""
@@ -62,7 +62,7 @@ IMAGE_INSTALL += " \
 "
 
 
-IMAGE_INSTALL_append = "ffmpeg alsa-utils v4l-utils"
+IMAGE_INSTALL:append = "ffmpeg alsa-utils v4l-utils"
 
 TOOLCHAIN_TARGET_TASK += " \
     ${ML_STATICDEV} \

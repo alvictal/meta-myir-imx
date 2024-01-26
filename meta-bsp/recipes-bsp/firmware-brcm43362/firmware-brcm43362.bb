@@ -20,5 +20,5 @@ do_install (){
 }
 
 
-FILES_${PN} = "${base_libdir}/firmware/brcm \
+FILES:${PN} = "${base_libdir}/firmware/brcm \
 "

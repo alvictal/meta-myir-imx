@@ -56,4 +56,4 @@ do_install() {
     done
 }
 
-FILES_${PN} = "/opt"
+FILES:${PN} = "/opt"

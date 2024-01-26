@@ -1,4 +1,4 @@
-ROOTFS_POSTPROCESS_COMMAND_append_mx8 = "install_upgrade_info; "
+ROOTFS_POSTPROCESS_COMMAND:append:mx8 = "install_upgrade_info; "
 
 
 

@@ -13,7 +13,7 @@ SRC_URI = "${GST1.0-PLUGINS-BASE_SRC};branch=${SRCBRANCH} \
 S = "${WORKDIR}/git"
 
 DEPENDS += "iso-codes util-linux zlib"
-DEPENDS_append_imxgpu2d = " virtual/libg2d"
+DEPENDS:append:imxgpu2d = " virtual/libg2d"
 
 inherit use-imx-headers gobject-introspection 
 
@@ -78,8 +78,8 @@ EXTRA_OEMESON += " \
 GTKDOC_MESON_ENABLE_FLAG = "enabled"
 GTKDOC_MESON_DISABLE_FLAG = "disabled"
 
-FILES_${PN} += "${libdir}/gstreamer-1.0/include"
-FILES_${MLPREFIX}libgsttag-1.0 += "${datadir}/gst-plugins-base/1.0/license-translations.dict"
+FILES:${PN} += "${libdir}/gstreamer-1.0/include"
+FILES:${MLPREFIX}libgsttag-1.0 += "${datadir}/gst-plugins-base/1.0/license-translations.dict"
 
 COMPATIBLE_MACHINE = "(mx6|mx7|mx8)"
 

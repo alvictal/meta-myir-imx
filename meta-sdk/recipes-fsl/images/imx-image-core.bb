@@ -16,12 +16,12 @@ IMAGE_FEATURES += " \
     ssh-server-dropbear \
     hwcodecs \
 "
-SDKIMAGE_FEATURES_append = " \
+SDKIMAGE_FEATURES:append = " \
     staticdev-pkgs \
 "
 CLINFO ?= ""
-CLINFO_imxgpu = "clinfo"
-CLINFO_mx8mm = ""
+CLINFO:imxgpu = "clinfo"
+CLINFO:mx8mm = ""
 
 IMAGE_INSTALL += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', ' weston weston-examples weston-init','', d)} \

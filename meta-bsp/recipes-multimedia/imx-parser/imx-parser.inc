@@ -8,9 +8,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6b552f505eedab4a11ab538cf3db743a"
 
 # For backwards compatibility
 PROVIDES += "libfslparser"
-RREPLACES_${PN} = "libfslparser"
-RPROVIDES_${PN} = "libfslparser"
-RCONFLICTS_${PN} = "libfslparser"
+RREPLACES:${PN} = "libfslparser"
+RPROVIDES:${PN} = "libfslparser"
+RCONFLICTS:${PN} = "libfslparser"
 
 inherit fsl-eula-unpack autotools pkgconfig
 
@@ -34,7 +34,7 @@ python __set_insane_skip() {
 do_package_qa[prefuncs] += "__set_insane_skip"
 
 # FIXME: gst-fsl-plugin looks for the .so files so we need to deploy those
-FILES_${PN} += "${libdir}/imx-mm/*/*${SOLIBS} ${libdir}/imx-mm/*/*${SOLIBSDEV}"
+FILES:${PN} += "${libdir}/imx-mm/*/*${SOLIBS} ${libdir}/imx-mm/*/*${SOLIBSDEV}"
 
 
 INHIBIT_SYSROOT_STRIP = "1"

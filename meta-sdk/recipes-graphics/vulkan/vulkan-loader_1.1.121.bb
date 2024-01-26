@@ -34,5 +34,5 @@ UPSTREAM_CHECK_GITTAGREGEX = "sdk-(?P<pver>\d+(\.\d+)+)"
 # libvulkan.so is loaded dynamically, so put it in the main package
 # instead of -dev
 FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/lib*${SOLIBSDEV}"
-INSANE_SKIP_${PN} += "dev-so"
+FILES:${PN} += "${libdir}/lib*${SOLIBSDEV}"
+INSANE_SKIP:${PN} += "dev-so"

@@ -42,9 +42,9 @@ do_install () {
    install -m 755 ${S}/watchdog/watchdog_test ${D}/${bindir}/
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
             ${bindir} \
             "
 
-INSANE_SKIP_${PN}-dev = "ldflags"
-INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+INSANE_SKIP:${PN}-dev = "ldflags"
+INSANE_SKIP:${PN} = "${ERROR_QA} ${WARN_QA}"

@@ -17,8 +17,8 @@ S = "${WORKDIR}/git"
 
 inherit cmake python3native
 
-OPTEE_OS_TA_EXPORT_DIR_aarch64 = "${STAGING_INCDIR}/optee/export-user_ta_arm64"
-OPTEE_OS_TA_EXPORT_DIR_arm = "${STAGING_INCDIR}/optee/export-user_ta_arm32"
+OPTEE_OS_TA_EXPORT_DIR:aarch64 = "${STAGING_INCDIR}/optee/export-user_ta_arm64"
+OPTEE_OS_TA_EXPORT_DIR:arm = "${STAGING_INCDIR}/optee/export-user_ta_arm32"
 
 EXTRA_OECMAKE = " \
     -DSECO_ROOT=${STAGING_INCDIR} \
@@ -30,11 +30,11 @@ EXTRA_OECMAKE = " \
 
 PACKAGES =+ "${PN}-tests"
 
-FILES_${PN} += "${base_libdir}/optee_armtz/*"
+FILES:${PN} += "${base_libdir}/optee_armtz/*"
 
-FILES_${PN}-tests = "${bindir}/* ${datadir}/${BPN}/tests/*"
+FILES:${PN}-tests = "${bindir}/* ${datadir}/${BPN}/tests/*"
 
-RDEPENDS_${PN}-tests += "bash cmake"
+RDEPENDS:${PN}-tests += "bash cmake"
 
 COMPATIBLE_MACHINE = "(mx8)"
-COMPATIBLE_MACHINE_mx8m = "(^$)"
+COMPATIBLE_MACHINE:mx8m = "(^$)"

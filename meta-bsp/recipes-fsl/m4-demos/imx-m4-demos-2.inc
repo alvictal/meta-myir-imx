@@ -8,16 +8,16 @@ LICENSE = "Proprietary"
 inherit deploy fsl-eula2-unpack2
 
 SOC        ?= "INVALID"
-SOC_mx7ulp  = "imx7ulp"
-SOC_mx8mm   = "imx8mm"
-SOC_mx8mq   = "imx8mq"
-SOC_mx8qm   = "imx8qm"
-SOC_mx8qxp  = "imx8qx"
-SOC_mx8dxl  = "imx8dxl-phantom"
-SOC_mx8phantomdxl = "imx8dxl-phantom"
+SOC:mx7ulp  = "imx7ulp"
+SOC:mx8mm   = "imx8mm"
+SOC:mx8mq   = "imx8mq"
+SOC:mx8qm   = "imx8qm"
+SOC:mx8qxp  = "imx8qx"
+SOC:mx8dxl  = "imx8dxl-phantom"
+SOC:mx8phantomdxl = "imx8dxl-phantom"
 
 IMX_PACKAGE_NAME = "${SOC}-m4-demo-${PV}"
-SRC_URI_append = ";name=${SOC}"
+SRC_URI:append = ";name=${SOC}"
 
 SCR = "SCR-${SOC}-m4-demo.txt"
 

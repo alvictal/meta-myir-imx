@@ -2,7 +2,7 @@ SUMMARY = "Qualcomm WiFi driver for QCA module 9377"
 LICENSE = "BSD & GPLv2"
 LIC_FILES_CHKSUM = "file://CORE/HDD/src/wlan_hdd_main.c;beginline=1;endline=20;md5=ec8d62116b13db773825ebf7cf91be1d;"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/kernel-module-qca:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/kernel-module-qca:"
 QCACLD_SRC ?= "git://github.com/nxp-imx/qcacld-2.0-imx.git;protocol=https"
 
 #Kernel 5.4

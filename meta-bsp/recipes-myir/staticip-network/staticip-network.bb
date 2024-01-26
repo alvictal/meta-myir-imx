@@ -18,5 +18,5 @@ do_install () {
     install -m 755 ${S}/11-static-eth1.network  ${D}/${sysconfdir}/systemd/network/
 }
 
-INSANE_SKIP_${PN}-dev = "ldflags"
-INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+INSANE_SKIP:${PN}-dev = "ldflags"
+INSANE_SKIP:${PN} = "${ERROR_QA} ${WARN_QA}"

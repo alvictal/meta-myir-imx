@@ -15,7 +15,7 @@ IMAGE_FEATURES += " \
     ssh-server-dropbear \
     hwcodecs \
 "
-SDKIMAGE_FEATURES_append = " \
+SDKIMAGE_FEATURES:append = " \
     staticdev-pkgs \
 "
 IMAGE_INSTALL += " \

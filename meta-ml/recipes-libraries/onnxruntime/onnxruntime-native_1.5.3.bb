@@ -7,7 +7,7 @@ DEPENDS = "libpng zlib"
 
 # For ONNX Runtime v0.3.0 we need only 'protoc' to be compiled for native system
 GIT_protobuf = "git://github.com/google/protobuf.git;branch=3.11.x;name=protobuf"
-SRCREV_protobuf = "df2bce345d4bc8cdc3eba2a866e11e79e1fff4df"
+SRCREV:protobuf = "df2bce345d4bc8cdc3eba2a866e11e79e1fff4df"
 
 SRC_URI = "\
     ${GIT_protobuf} \

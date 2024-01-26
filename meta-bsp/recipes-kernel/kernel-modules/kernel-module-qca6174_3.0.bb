@@ -10,4 +10,4 @@ EXTRA_OEMAKE += " \
     MODNAME=qca6174 \
 "
 
-RDEPENDS_${PN} += "firmware-qca6174"
+RDEPENDS:${PN} += "firmware-qca6174"

@@ -31,5 +31,5 @@ do_install (){
 
 
 
-FILES_${PN} = "/"
-INSANE_SKIP_${PN} = "file-rdeps"
+FILES:${PN} = "/"
+INSANE_SKIP:${PN} = "file-rdeps"

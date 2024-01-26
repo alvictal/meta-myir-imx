@@ -9,9 +9,9 @@ inherit packagegroup
 
 # SMW package only available on some i.MX SoC
 SMW_TESTS = ""
-SMW_TESTS_mx8x = "smw-tests"
+SMW_TESTS:mx8x = "smw-tests"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     e2fsprogs-mke2fs \
     keyctl-caam \
     keyutils \

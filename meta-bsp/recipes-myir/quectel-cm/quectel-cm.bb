@@ -21,7 +21,7 @@ do_install () {
     install -m 0755 ${S}/quectel-CM ${D}${bindir}
 }
 
-FILES_${PN} += "${bindir}"
+FILES:${PN} += "${bindir}"
 
-INSANE_SKIP_${PN}-dev = "ldflags"
-INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+INSANE_SKIP:${PN}-dev = "ldflags"
+INSANE_SKIP:${PN} = "${ERROR_QA} ${WARN_QA}"

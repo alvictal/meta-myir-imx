@@ -6,7 +6,7 @@ DESCRIPTION = "Freescale i.MX firmware such as for the VPU"
 
 require firmware-imx-${PV}.inc
 
-SRC_URI_append = " \
+SRC_URI:append = " \
     file://sdma \
     file://epdc \
     file://regulatory \
@@ -69,7 +69,7 @@ do_install() {
     rm -rf ${D}${base_libdir}/firmware/hdmi
 }
 
-python populate_packages_prepend() {
+python populate_packages:prepend() {
     vpudir = bb.data.expand('${base_libdir}/firmware/vpu', d)
     do_split_packages(d, vpudir, '^vpu_fw_([^_]*).*\.bin',
                       output_pattern='firmware-imx-vpu-%s',
@@ -85,18 +85,18 @@ python populate_packages_prepend() {
                       prepend=True)
 }
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 PACKAGES_DYNAMIC = "${PN}-vpu-* ${PN}-sdma-*"
 
 PACKAGES =+ "${PN}-epdc ${PN}-sdma ${PN}-easrc ${PN}-regulatory ${PN}-hdmi ${PN}-xcvr ${PN}-xuvi"
 
-FILES_${PN}-epdc = "${base_libdir}/firmware/imx/epdc/ ${sysconfdir}/epdc"
-FILES_${PN}-sdma = "${base_libdir}/firmware/imx/sdma ${sysconfdir}/sdma"
-FILES_${PN}-easrc = "${base_libdir}/firmware/imx/easrc/"
-FILES_${PN}-regulatory = "${sysconfdir}/regulatory"
-FILES_${PN}-hdmi = "${base_libdir}/firmware/imx/hdmi/ ${sysconfdir}/hdmi"
-FILES_${PN}-xcvr = "${base_libdir}/firmware/imx/xcvr/"
-FILES_${PN}-xuvi = "${base_libdir}/firmware/imx/xuvi/"
+FILES:${PN}-epdc = "${base_libdir}/firmware/imx/epdc/ ${sysconfdir}/epdc"
+FILES:${PN}-sdma = "${base_libdir}/firmware/imx/sdma ${sysconfdir}/sdma"
+FILES:${PN}-easrc = "${base_libdir}/firmware/imx/easrc/"
+FILES:${PN}-regulatory = "${sysconfdir}/regulatory"
+FILES:${PN}-hdmi = "${base_libdir}/firmware/imx/hdmi/ ${sysconfdir}/hdmi"
+FILES:${PN}-xcvr = "${base_libdir}/firmware/imx/xcvr/"
+FILES:${PN}-xuvi = "${base_libdir}/firmware/imx/xuvi/"
 
 COMPATIBLE_MACHINE = "(imx)"

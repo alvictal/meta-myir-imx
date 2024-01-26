@@ -5,4 +5,4 @@ PACKAGECONFIG = "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '
 EXTRA_OECMAKE = "-DBUILD_CUBE=OFF"
 
 COMPATIBLE_MACHINE = "(mx8)"
-COMPATIBLE_MACHINE_mx8mm = "(^$)"
+COMPATIBLE_MACHINE:mx8mm = "(^$)"

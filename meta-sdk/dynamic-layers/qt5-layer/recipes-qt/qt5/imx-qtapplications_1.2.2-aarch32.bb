@@ -45,13 +45,13 @@ do_install () {
 }
 
 
-FILES_${PN} = " \
+FILES:${PN} = " \
     ${datadir}/qt5/examples/*/* \
     ${datadir}/applications/* \
     ${datadir}/pixmaps/* \
 "
 
-INSANE_SKIP_${PN} += "debug-files"
+INSANE_SKIP:${PN} += "debug-files"
 
 COMPATIBLE_MACHINE = "(mx6|mx7ulp)"
 

@@ -34,4 +34,4 @@ do_install() {
     cp -r ${VKMARK_INSTALL_DIR}${libdir}/* ${D}${libdir}/
 }
 
-FILES_${PN} += "${bindir} ${datadir}"
+FILES:${PN} += "${bindir} ${datadir}"

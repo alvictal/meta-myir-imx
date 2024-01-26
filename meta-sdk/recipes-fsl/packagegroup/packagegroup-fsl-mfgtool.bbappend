@@ -1,6 +1,6 @@
 # Add extra tools needed for Android mfgtools
 
-RDEPENDS_${PN}-base += " \
+RDEPENDS:${PN}-base += " \
     simg2img \
     gptfdisk \
     hdparm \
@@ -8,7 +8,7 @@ RDEPENDS_${PN}-base += " \
     nfs-utils \
 "
 
-RDEPENDS_${PN}-extfs += " \
+RDEPENDS:${PN}-extfs += " \
     e2fsprogs \
     f2fs-tools \
 "

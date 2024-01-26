@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DTFLITE_ENABLE_XNNPACK=on -DTFLITE_ENABLE_RUY=on -DTFLITE_ENABLE_NNAPI=on  ${S}/tensorflow/lite/"
 
-do_configure_prepend(){
+do_configure:prepend(){
     export HTTP_PROXY=${http_proxy}
     export HTTPS_PROXY=${https_proxy}
     export http_proxy=${http_proxy}
@@ -30,7 +30,7 @@ do_configure_prepend(){
 }
 
 
-do_compile_append () {
+do_compile:append () {
     # build pip package
     export PYTHONPATH="${STAGING_LIBDIR_NATIVE}/${PYTHON_DIR}/site-packages"
     export PIP_BUILD_ROOT="${WORKDIR}"
@@ -82,10 +82,10 @@ do_install() {
 }
 
 RDEPENDS_MX8       = ""
-RDEPENDS_MX8_mx8   = "libnn-imx nn-imx"
-RDEPENDS_MX8_mx8mm = ""
-RDEPENDS_MX8_mx8mnlite = ""
-RDEPENDS_${PN}   = " \
+RDEPENDS_MX8:mx8   = "libnn-imx nn-imx"
+RDEPENDS_MX8:mx8mm = ""
+RDEPENDS_MX8:mx8mnlite = ""
+RDEPENDS:${PN}   = " \
     flatbuffers \
     python3 \
     python3-numpy \
@@ -97,9 +97,9 @@ SSTATE_DUPWHITELIST = "/"
 
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-INSANE_SKIP_${PN} += " \
+INSANE_SKIP:${PN} += " \
     already-stripped \
     staticdev \
 "
 
-FILES_${PN} += "${libdir}/python*"
+FILES:${PN} += "${libdir}/python*"

@@ -18,12 +18,12 @@ EXTRA_OECONF = "${@bb.utils.contains('TUNE_FEATURES', 'aarch64', '--enable-armv8
 
 PACKAGECONFIG ?= ""
 # Enable vpu PACKAGECONFIG for aarch32 vpu platforms only
-PACKAGECONFIG_mx6q = "vpu"
-PACKAGECONFIG_mx6dl = "vpu"
+PACKAGECONFIG:mx6q = "vpu"
+PACKAGECONFIG:mx6dl = "vpu"
 
 PACKAGECONFIG[vpu] = "--enable-vpu,--disable-vpu,virtual/imxvpu"
 
-do_install_append() {
+do_install:append() {
     # FIXME: This link points to nowhere
     if [ -e ${D}${libdir}/imx-mm/audio-codec/lib_src_ppp_arm11_elinux.so ]; then
         rm ${D}${libdir}/imx-mm/audio-codec/lib_src_ppp_arm11_elinux.so
@@ -94,25 +94,25 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 PACKAGES += "${PN}-meta ${PN}-test-bin ${PN}-test-source lib-src-ppp-arm11-elinux1"
 
-ALLOW_EMPTY_${PN} = "1"
-ALLOW_EMPTY_${PN}-meta = "1"
+ALLOW_EMPTY:${PN} = "1"
+ALLOW_EMPTY:${PN}-meta = "1"
 
 # Ensure we get warnings if we miss something
-FILES_${PN} = ""
+FILES:${PN} = ""
 
-FILES_${PN}-dev += "${libdir}/imx-mm/*/*${SOLIBSDEV} \
+FILES:${PN}-dev += "${libdir}/imx-mm/*/*${SOLIBSDEV} \
                     ${libdir}/imx-mm/*/*/*${SOLIBSDEV} \
                     ${libdir}/pkgconfig/*.pc ${includedir}/imx-mm/*"
 
-FILES_${PN}-test-bin += "${datadir}/imx-mm/*/examples/*/bin"
+FILES:${PN}-test-bin += "${datadir}/imx-mm/*/examples/*/bin"
 
-FILES_${PN}-test-source += "${datadir}/imx-mm/*"
+FILES:${PN}-test-source += "${datadir}/imx-mm/*"
 
 # FIXME: The wrap and lib names does not match
-FILES_${PN}-oggvorbis += "${libdir}/imx-mm/audio-codec/wrap/lib_vorbisd_wrap_arm*_elinux.so.*"
-FILES_${PN}-nb += "${libdir}/imx-mm/audio-codec/wrap/lib_nbamrd_wrap_arm*_elinux.so.*"
-FILES_${PN}-wb += "${libdir}/imx-mm/audio-codec/wrap/lib_wbamrd_wrap_arm*_elinux.so.*"
+FILES:${PN}-oggvorbis += "${libdir}/imx-mm/audio-codec/wrap/lib_vorbisd_wrap_arm*_elinux.so.*"
+FILES:${PN}-nb += "${libdir}/imx-mm/audio-codec/wrap/lib_nbamrd_wrap_arm*_elinux.so.*"
+FILES:${PN}-wb += "${libdir}/imx-mm/audio-codec/wrap/lib_wbamrd_wrap_arm*_elinux.so.*"
 FILES_lib-src-ppp-arm11-elinux1 += "${libdir}/lib_src_ppp_arm11_elinux.so.1"
 
-PACKAGE_ARCH_mx6q = "${MACHINE_SOCARCH}"
-PACKAGE_ARCH_mx6dl = "${MACHINE_SOCARCH}"
+PACKAGE_ARCH:mx6q = "${MACHINE_SOCARCH}"
+PACKAGE_ARCH:mx6dl = "${MACHINE_SOCARCH}"

@@ -107,12 +107,12 @@ EXTRA_CFLAGS_XEN_TOOLS="${HOST_CC_ARCH} ${CFLAGS}"
 # 32-bit ARM needs the TUNE_CCARGS component of HOST_CC_ARCH to be passed
 # in CC to ensure that configure can compile binaries for the right arch.
 CC_arm="${CCACHE}${HOST_PREFIX}gcc ${TUNE_CCARGS} ${TOOLCHAIN_OPTIONS} ${CC_REPRODUCIBLE_OPTIONS}"
-EXTRA_CFLAGS_XEN_CORE_arm="${SECURITY_CFLAGS} ${CFLAGS}"
-EXTRA_CFLAGS_XEN_TOOLS_arm="${SECURITY_CFLAGS} ${CFLAGS}"
+EXTRA_CFLAGS_XEN_CORE:arm="${SECURITY_CFLAGS} ${CFLAGS}"
+EXTRA_CFLAGS_XEN_TOOLS:arm="${SECURITY_CFLAGS} ${CFLAGS}"
 
 # There are no Xen-provided variables for C++, so append to the tool variables:
-CPP_append = " ${CPPFLAGS}"
-CXX_append = " ${CXXFLAGS}"
+CPP:append = " ${CPPFLAGS}"
+CXX:append = " ${CXXFLAGS}"
 
 EXTRA_OECONF += " \
     --exec-prefix=${prefix} \
@@ -185,7 +185,7 @@ do_post_patch() {
     fi
 }
 
-do_post_patch_append_arm()  {
+do_post_patch:append:arm()  {
     # The hypervisor binary must not be built with the hard floating point ABI.
     echo "CC := \$(filter-out ${TUNE_CCARGS},\$(CC))" >> ${S}/xen/arch/arm/Rules.mk
     echo "CPP := \$(filter-out ${TUNE_CCARGS},\$(CPP))" >> ${S}/xen/arch/arm/Rules.mk
@@ -200,7 +200,7 @@ EXTRA_OEMAKE += "XEN_CONFIG_EXPERT=y"
 # from staging that reverts this
 EXTRA_OEMAKE += "debug=n"
 
-do_configure_common() {
+do_configure:common() {
     cd ${S}
 
     #./configure --enable-xsmpolicy does not set XSM_ENABLE must be done manually
@@ -221,13 +221,13 @@ do_configure_common() {
                PYTHON="${PYTHON}"
 }
 
-do_compile_prepend() {
+do_compile:prepend() {
     # workaround for build bug when CFLAGS is exported
     # https://www.mail-archive.com/xen-devel@lists.xen.org/msg67822.html
     unset CFLAGS
 }
 
-do_install_prepend() {
+do_install:prepend() {
     # CFLAGS is used to set PY_CFLAGS which affects the pygrub install
     # so also need to unset CFLAGS here:
     unset CFLAGS

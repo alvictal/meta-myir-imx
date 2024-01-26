@@ -11,15 +11,15 @@ DEST_DIR = "${S}/external"
 SRC_URI = "git://github.com/KhronosGroup/SPIRV-Tools.git;name=spirv-tools \
            git://github.com/KhronosGroup/SPIRV-Headers.git;name=spirv-headers;destsuffix=${DEST_DIR}/spirv-headers \
 "
-SRCREV_spirv-tools = "9b3cc3e05337358d0bd9fec1b7a51e3cbf55312b"
-SRCREV_spirv-headers = "38cafab379e5d16137cb97a485b9385191039b92"
+SRCREV:spirv-tools = "9b3cc3e05337358d0bd9fec1b7a51e3cbf55312b"
+SRCREV:spirv-headers = "38cafab379e5d16137cb97a485b9385191039b92"
 
 inherit cmake python3native
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}/${includedir}/SPIRV
 	install -m 0644 ${DEST_DIR}/spirv-headers/include/spirv/unified1/* ${D}/${includedir}/SPIRV
 }
 
 FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/*.so"
+FILES:${PN} += "${libdir}/*.so"

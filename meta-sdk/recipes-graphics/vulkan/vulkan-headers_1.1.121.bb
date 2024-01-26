@@ -17,4 +17,4 @@ REQUIRED_DISTRO_FEATURES = "vulkan"
 inherit cmake features_check
 ANY_OF_DISTRO_FEATURES = "x11 wayland"
 
-FILES_${PN} += "${datadir}/vulkan/registry"
+FILES:${PN} += "${datadir}/vulkan/registry"

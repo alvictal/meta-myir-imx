@@ -18,11 +18,11 @@ SRCREV = "1bc601c674aecc2fee0dee8ff7a118db76b4c439"
 SRC_URI = "git://github.com/KhronosGroup/glslang \
 "
 
-FILES_${PN} += "${libdir}/*"
+FILES:${PN} += "${libdir}/*"
 
 BBCLASSEXTEND = "native nativesdk"
 
-do_install_append() {
+do_install:append() {
     # Some of the vulkan samples/test require these headers
     install -d ${D}${includedir}/SPIRV
     cp -f ${S}/SPIRV/GlslangToSpv.h ${D}${includedir}/SPIRV

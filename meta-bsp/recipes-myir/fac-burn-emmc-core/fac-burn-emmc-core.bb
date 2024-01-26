@@ -32,8 +32,8 @@ do_install(){
 }
 
 
-FILES_${PN} = "/"
+FILES:${PN} = "/"
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "fac-burn-emmc.service"
+SYSTEMD_SERVICE:${PN} = "fac-burn-emmc.service"
 SYSTEMD_AUTO_ENABLE = "enable"

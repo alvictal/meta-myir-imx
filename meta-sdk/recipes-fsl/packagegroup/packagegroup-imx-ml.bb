@@ -14,6 +14,6 @@ ML_PKGS = " \
     pytorch \
     torchvision \
 "
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${ML_PKGS} \
 "

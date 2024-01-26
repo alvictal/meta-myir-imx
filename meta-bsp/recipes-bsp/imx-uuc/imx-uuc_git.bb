@@ -16,6 +16,6 @@ SRCREV = "d6afb27e55d73d7ad08cd2dd51c784d8ec9694dc"
 
 S = "${WORKDIR}/git"
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"
 
-FILES_${PN} += "/linuxrc /fat"
+FILES:${PN} += "/linuxrc /fat"

@@ -18,8 +18,8 @@ DEPENDS = "gstreamer1.0 gstreamer1.0-plugins-base ffmpeg"
 
 inherit meson pkgconfig upstream-version-is-even
 
-FILES_${PN} += "${libdir}/gstreamer-1.0/*.so"
-FILES_${PN}-staticdev += "${libdir}/gstreamer-1.0/*.a"
+FILES:${PN} += "${libdir}/gstreamer-1.0/*.so"
+FILES:${PN}-staticdev += "${libdir}/gstreamer-1.0/*.a"
 
 delete_unused_libav_copy() {
         # When building with meson, the internal libav copy is not used.

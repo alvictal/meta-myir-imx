@@ -11,11 +11,11 @@ S = "${WORKDIR}/git"
 
 inherit module
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${base_libdir}/firmware/rtlwifi
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${base_libdir}/firmware \
     ${base_libdir}/firmware/rtlwifi \
     ${base_libdir}/firmware/rtlwifi/rtl8188fu.bin \

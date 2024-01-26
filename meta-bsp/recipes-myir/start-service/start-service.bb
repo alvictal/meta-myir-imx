@@ -11,9 +11,9 @@ S = "${WORKDIR}"
 
 inherit systemd 
 
-SYSTEMD_SERVICE_${PN} = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'startservice.service', '', d)}"
+SYSTEMD_SERVICE:${PN} = "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'startservice.service', '', d)}"
 
-do_install_append() {
+do_install:append() {
 	
 	install -d ${D}${systemd_unitdir}/system
 	install -d ${D}${sysconfdir}
@@ -22,7 +22,7 @@ do_install_append() {
 	install -m 755 ${WORKDIR}/myir_start_service.sh ${D}${sysconfdir}
 }
 
-pkg_postinst_ontarget_${PN} () {
+pkg_postinst_ontarget:${PN} () {
 	if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
 		if [ -n "$D" ]; then
 			OPTS="--root=$D"
@@ -31,11 +31,11 @@ pkg_postinst_ontarget_${PN} () {
 	fi
 }
 
-FILES_${PN}=" ${sysconfdir}   \
+FILES:${PN}=" ${sysconfdir}   \
               ${sysconfdir}/system \
 	  "
 #For dev packages only
-#INSANE_SKIP_${PN}-dev = "ldflags"
-#INSANE_SKIP_${PN} = "${ERROR_QA} ${WARN_QA}"
+#INSANE_SKIP:${PN}-dev = "ldflags"
+#INSANE_SKIP:${PN} = "${ERROR_QA} ${WARN_QA}"
 
 

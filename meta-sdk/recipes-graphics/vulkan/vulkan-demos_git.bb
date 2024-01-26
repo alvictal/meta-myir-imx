@@ -5,8 +5,8 @@ DEPENDS = "zlib"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=dcf473723faabf17baa9b5f2207599d0 \
                     file://examples/triangle/triangle.cpp;endline=12;md5=bccd1bf9cadd9e10086cf7872157e4fa"
 
-SRCREV_glm = "1ad55c5016339b83b7eec98c31007e0aee57d2bf"
-SRCREV_ktx = "726d14d02c95bb21ec9e43807751b491d295dd3c"
+SRCREV:glm = "1ad55c5016339b83b7eec98c31007e0aee57d2bf"
+SRCREV:ktx = "726d14d02c95bb21ec9e43807751b491d295dd3c"
 
 SRC_URI = "git://github.com/SaschaWillems/Vulkan.git \
            git://github.com/g-truc/glm;destsuffix=git/external/glm;name=glm \
@@ -23,7 +23,7 @@ REQUIRED_DISTRO_FEATURES = 'vulkan'
 inherit cmake features_check
 DEPENDS = "vulkan-loader assimp wayland-protocols wayland-native"
 
-do_install_append () {
+do_install:append () {
 
     mv ${D}${bindir}/screenshot ${D}${bindir}/vulkan-screenshot
 }

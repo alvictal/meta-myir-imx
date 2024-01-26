@@ -19,6 +19,6 @@ do_install () {
 }
 
 
-FILES_${PN} = "${datadir}/nxp_wireless"
+FILES:${PN} = "${datadir}/nxp_wireless"
 
 COMPATIBLE_MACHINE = "(mx6|mx7|mx8)"

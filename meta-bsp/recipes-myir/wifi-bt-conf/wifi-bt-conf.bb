@@ -30,5 +30,4 @@ do_install (){
 	install -m 0755 ${WORKDIR}/usr/bin/ifup_wifi_sta ${D}/usr/bin
 }
 
-FILES_${PN} = "/"
-
+FILES:

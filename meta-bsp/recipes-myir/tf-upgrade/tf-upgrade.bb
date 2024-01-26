@@ -30,8 +30,8 @@ do_install(){
 
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "check_upgrade.service"
+SYSTEMD_SERVICE:${PN} = "check_upgrade.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 
-FILES_${PN} = "/"
-INSANE_SKIP_${PN} = "file-rdeps"
+FILES:${PN} = "/"
+INSANE_SKIP:${PN} = "file-rdeps"

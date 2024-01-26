@@ -29,6 +29,6 @@ do_install(){
 
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "myir-regulatory.service"
+SYSTEMD_SERVICE:${PN} = "myir-regulatory.service"
 SYSTEMD_AUTO_ENABLE = "enable"
 

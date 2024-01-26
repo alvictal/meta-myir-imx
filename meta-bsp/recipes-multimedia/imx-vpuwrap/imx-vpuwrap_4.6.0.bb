@@ -3,7 +3,7 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 DESCRIPTION = "Freescale Multimedia VPU wrapper"
 DEPENDS = "virtual/imxvpu"
-DEPENDS_append_mx8mp = " imx-vpu-hantro-vc"
+DEPENDS:append:mx8mp = " imx-vpu-hantro-vc"
 LICENSE = "Proprietary"
 SECTION = "multimedia"
 LIC_FILES_CHKSUM = "file://COPYING;md5=a632fefd1c359980434f9389833cab3a"
@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
 
-do_install_append() {
+do_install:append() {
     # FIXME: Drop examples for now
     rm -r ${D}${datadir}
 }

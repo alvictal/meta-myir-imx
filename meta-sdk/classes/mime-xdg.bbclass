@@ -34,7 +34,7 @@ else
 fi
 }
 
-python populate_packages_append () {
+python populate_packages:append () {
     packages = d.getVar('PACKAGES').split()
     pkgdest =  d.getVar('PKGDEST')
     desktop_base = d.getVar('DESKTOPDIR')

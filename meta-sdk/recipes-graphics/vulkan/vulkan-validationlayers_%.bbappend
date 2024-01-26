@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
 SRC_URI += " \
     file://icd_VSI.json \
@@ -9,11 +9,11 @@ PACKAGECONFIG = "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '
 
 DEPENDS += " virtual/egl glslang spirv-tools"
 
-EXTRA_OECMAKE_remove = "-DBUILD_LAYERS=OFF"
+EXTRA_OECMAKE:remove = "-DBUILD_LAYERS=OFF"
 # Enable validation layers
-EXTRA_OECMAKE_append = " -DBUILD_LAYERS=ON"
+EXTRA_OECMAKE:append = " -DBUILD_LAYERS=ON"
 
-do_install_append () {
+do_install:append () {
 
     install -d ${D}${sysconfdir}/vulkan/icd.d
     cp ${WORKDIR}/icd_VSI.json ${D}${sysconfdir}/vulkan/icd.d
@@ -22,9 +22,9 @@ do_install_append () {
 }
 
 FILES_SOLIBSDEV = ""
-FILES_${PN} += "${libdir}/libVkLayer_*.so"
+FILES:${PN} += "${libdir}/libVkLayer_*.so"
 
-INSANE_SKIP_${PN} = "dev-so"
+INSANE_SKIP:${PN} = "dev-so"
 
 COMPATIBLE_MACHINE = "(mx8)"
-COMPATIBLE_MACHINE_mx8mm = "(^$)"
+COMPATIBLE_MACHINE:mx8mm = "(^$)"

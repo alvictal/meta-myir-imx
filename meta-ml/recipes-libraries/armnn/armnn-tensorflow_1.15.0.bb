@@ -7,9 +7,9 @@ SRC_URI = " \
     git://github.com/ARM-software/armnn.git;branch=branches/armnn_20_02;name=armnn;subdir=${WORKDIR}/armnn;destsuffix=armnn \
 "
 
-SRCREV_tensorflow = "590d6eef7e91a6a7392c8ffffb7b58f2e0c8bc6b"
-SRCREV_armnn = "8c3259fa007d43fcc5ea56fe6928526dbe79f3c0"
-SRCREV_FORMAT = "tensorflow"
+SRCREV:tensorflow = "590d6eef7e91a6a7392c8ffffb7b58f2e0c8bc6b"
+SRCREV:armnn = "8c3259fa007d43fcc5ea56fe6928526dbe79f3c0"
+SRCREV:FORMAT = "tensorflow"
 
 DEPENDS = " \
         protobuf-native \
@@ -33,4 +33,4 @@ do_install() {
     done
 }
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
