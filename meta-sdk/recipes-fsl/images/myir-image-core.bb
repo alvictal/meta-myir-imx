@@ -63,4 +63,4 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 	firmware-imx \
 	wifi-bt-conf \
 "
-IMAGE_INSTALL:append += "libgpiod"
+IMAGE_INSTALL:append = "libgpiod"

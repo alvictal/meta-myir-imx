@@ -156,7 +156,7 @@ do_install:append () {
 
 # Add runtime provides for the ABI versions of the video and input subsystems,
 # so that drivers can depend on the relevant version.
-python populate_packages_prepend() {
+python populate_packages:prepend() {
     import subprocess
 
     # Set PKG_CONFIG_PATH so pkg-config looks at the .pc files that are going

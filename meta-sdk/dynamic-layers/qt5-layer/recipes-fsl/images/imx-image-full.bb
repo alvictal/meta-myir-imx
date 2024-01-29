@@ -11,18 +11,18 @@ CONFLICT_DISTRO_FEATURES = "directfb"
 # Add machine learning for certain SoCs
 ML_PKGS                   ?= ""
 ML_STATICDEV              ?= ""
-ML_PKGS_mx8                = "packagegroup-imx-ml"
-ML_STATICDEV_mx8           = "tensorflow-lite-staticdev"
-ML_PKGS_mx8dxl             = ""
-ML_STATICDEV_mx8dxl        = ""
-ML_PKGS_mx8phantomdxl      = ""
-ML_STATICDEV_mx8phantomdxl = ""
-ML_PKGS_mx8mnlite          = ""
-ML_STATICDEV_mx8mnlite     = ""
+ML_PKGS:mx8                = "packagegroup-imx-ml"
+ML_STATICDEV:mx8           = "tensorflow-lite-staticdev"
+ML_PKGS:mx8dxl             = ""
+ML_STATICDEV:mx8dxl        = ""
+ML_PKGS:mx8phantomdxl      = ""
+ML_STATICDEV:mx8phantomdxl = ""
+ML_PKGS:mx8mnlite          = ""
+ML_STATICDEV:mx8mnlite     = ""
 
 # Add opencv for i.MX GPU
 OPENCV_PKGS       ?= ""
-OPENCV_PKGS_imxgpu = " \
+OPENCV_PKGS:imxgpu = " \
     opencv-apps \
     opencv-samples \
     python3-opencv \
